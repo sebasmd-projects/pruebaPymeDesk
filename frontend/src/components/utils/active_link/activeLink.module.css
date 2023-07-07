@@ -1,0 +1,9 @@
+.active button{
+    text-decoration: underline;
+    color: rgb(55, 240, 163);
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
