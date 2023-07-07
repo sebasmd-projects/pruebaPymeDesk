@@ -48,3 +48,8 @@ From the orders view, users should be able to see the details of each order, fil
 From the customers view, users should be able to see customer details and apply filters.
 
 Since there are multiple routes, the website should include navigation mechanisms.
+
+
+## Responsive app video:
+[![Responsive mobile video](https://i.ytimg.com/vi/FhkqMHxchZ8/maxresdefault.jpg)](https://photos.app.goo.gl/9gsihqhKCsTfVmVi9)
+[Click me!](https://photos.app.goo.gl/9gsihqhKCsTfVmVi9)
