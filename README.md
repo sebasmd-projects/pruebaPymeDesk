@@ -49,7 +49,7 @@ From the customers view, users should be able to see customer details and apply 
 
 Since there are multiple routes, the website should include navigation mechanisms.
 
-## View example:
+## View demo:
 ### BACKEND:
 [https://pymedesk.sebasmoralesd.com/](https://pymedesk.sebasmoralesd.com/admin/)
 
@@ -87,5 +87,5 @@ Since there are multiple routes, the website should include navigation mechanism
 7. [Account client id:'3'](https://pdfront.sebasmoralesd.com/clients/3)
    
    Note: 
-    - Only display info is you log in with the admin account
+    - Only display info if you log in with the admin account
     - admin | admin@admin.com | password
