@@ -12,19 +12,19 @@ export default function GetOrderPage() {
     const [order, setOrder] = useState(null);
 
     useEffect(() => {
+        const fetchOrderId = async () => {
+            try {
+                const response = await axios.get(`${apiPath}/api/orders/${id}/`);
+                setOrder(response.data);
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        };
+
         if (id) {
             fetchOrderId();
         }
     }, [apiPath, id]);
-
-    const fetchOrderId = async () => {
-        try {
-            const response = await axios.get(`${apiPath}/api/orders/${id}/`);
-            setOrder(response.data);
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
-    };
 
     return (
         <RootLayout>

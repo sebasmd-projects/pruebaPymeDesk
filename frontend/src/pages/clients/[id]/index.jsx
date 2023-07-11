@@ -17,19 +17,20 @@ export default function GetClientPage() {
   });
 
   useEffect(() => {
+    const fetchClientId = async () => {
+      try {
+        const id = localStorage.getItem('user_id');
+        const response = await axios.get(`${apiPath}/api/users/${id}/`);
+        setclient(response.data);
+        setEditedClient(response.data);
+      } catch (error) {
+        console.error('Error fetching client:', error);
+      }
+    };
+
     fetchClientId();
   }, [apiPath]);
 
-  const fetchClientId = async () => {
-    try {
-      const id = localStorage.getItem('user_id');
-      const response = await axios.get(`${apiPath}/api/users/${id}/`);
-      setclient(response.data);
-      setEditedClient(response.data);
-    } catch (error) {
-      console.error('Error fetching client:', error);
-    }
-  };
 
   const handleEditClient = () => {
     setEditingClient(client);

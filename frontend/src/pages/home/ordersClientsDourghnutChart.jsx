@@ -18,7 +18,7 @@ export default function OrdersClientsDoughnutChart() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [apiPath]);
 
     const doughnutData = {
         labels: [

@@ -11,18 +11,19 @@ const OrdersTable = () => {
     const apiPath = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     useEffect(() => {
+        const fetchOrders = async () => {
+            try {
+                const response = await axios.get(`${apiPath}/api/orders/`);
+                setOrders(response.data.results);
+                setFilteredOrders(response.data.results);
+            } catch (error) {
+                console.error('Error fetching orders:', error);
+            }
+        };
+    
         fetchOrders();
     }, [apiPath]);
-
-    const fetchOrders = async () => {
-        try {
-            const response = await axios.get(`${apiPath}/api/orders/`);
-            setOrders(response.data.results);
-            setFilteredOrders(response.data.results);
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-        }
-    };
+    
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);

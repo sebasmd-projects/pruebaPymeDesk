@@ -18,7 +18,7 @@ export default function SalesLineChart() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [apiPath]);
 
     const options = {
         plugins: {

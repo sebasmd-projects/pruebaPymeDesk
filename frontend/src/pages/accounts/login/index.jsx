@@ -13,11 +13,11 @@ export default function LoginPage() {
     useEffect(() => {
         const checkTokenValidity = async () => {
             const accessToken = localStorage.getItem('accessToken');
-
+    
             try {
                 const response = await axios.post('/api/checkvalidtoken', { token: accessToken });
                 const { message } = response.data;
-
+    
                 if (message === 'Token is valid') {
                     router.push('/');
                 }
@@ -25,11 +25,12 @@ export default function LoginPage() {
                 console.error('Error checking token validity:', error);
             }
         };
-
+    
         if (router.pathname === '/accounts/login') {
             checkTokenValidity();
         }
-    }, [router.pathname]);
+    }, [router, router.pathname]);
+    
 
     const handleLogin = async (e) => {
         e.preventDefault();

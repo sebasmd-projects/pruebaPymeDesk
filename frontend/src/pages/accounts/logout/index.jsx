@@ -6,17 +6,17 @@ export default function LogoutPage() {
     const router = useRouter();
 
     useEffect(() => {
+        const handleLogout = () => {
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('accessToken');
+            router.push('/accounts/login');
+        };
+
         if (router.pathname === '/accounts/logout') {
             handleLogout();
         }
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem('user_id');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('accessToken');
-        router.push('/accounts/login');
-    };
+    }, [router, router.pathname]);
 
     return <LoginPage />;
 }

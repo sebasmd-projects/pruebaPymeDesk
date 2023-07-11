@@ -17,7 +17,7 @@ export default function IncomeBarChart() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [apiPath]);
 
     const options = {
         plugins: {

@@ -9,18 +9,18 @@ const ClientsTable = () => {
     const apiPath = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     useEffect(() => {
+        const fetchClients = async () => {
+            try {
+                const response = await axios.get(`${apiPath}/api/users/`);
+                setClients(response.data.results);
+                setFilteredClients(response.data.results);
+            } catch (error) {
+                console.error('Error fetching clients:', error);
+            }
+        };
+
         fetchClients();
     }, [apiPath]);
-
-    const fetchClients = async () => {
-        try {
-            const response = await axios.get(`${apiPath}/api/users/`);
-            setClients(response.data.results);
-            setFilteredClients(response.data.results);
-        } catch (error) {
-            console.error('Error fetching clients:', error);
-        }
-    };
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);

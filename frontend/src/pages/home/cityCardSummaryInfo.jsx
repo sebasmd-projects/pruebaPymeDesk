@@ -15,7 +15,7 @@ export default function CityCardSummaryInfo() {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  }, [apiPath]);
 
   return (
     <Card sx={{ minWidth: 275 }}>

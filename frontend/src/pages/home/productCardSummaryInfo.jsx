@@ -15,7 +15,7 @@ export default function ProductCardSummaryInfo() {
             .catch(error => {
                 console.error(error);
             });
-    }, []);
+    }, [apiPath]);
 
     return (
         <Card sx={{ minWidth: 275 }}>

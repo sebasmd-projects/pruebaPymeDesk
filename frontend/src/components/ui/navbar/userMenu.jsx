@@ -45,7 +45,7 @@ export const UserMenu = () => {
                 >
                     {activeUser ? (
                         [
-                            <Typography sx={{m:2}}>{localStorage.getItem('first_name')} {localStorage.getItem('last_name')}</Typography>,
+                            <Typography key="name" sx={{ m: 2 }}>{localStorage.getItem('first_name')} {localStorage.getItem('last_name')}</Typography>,
                             <Link
                                 key="account-link"
                                 href={`/clients/${localStorage.getItem('user_id')}`}
@@ -62,10 +62,11 @@ export const UserMenu = () => {
                             </Link>
                         ]
                     ) : (
-                        <Link href="/accounts/login" onClick={handleCloseUserMenu}>
+                        <Link key="login-link" href="/accounts/login" onClick={handleCloseUserMenu}>
                             <ActiveLink text="Iniciar sesión" />
                         </Link>
                     )}
+
                 </Menu>
             </Box>
         </>
