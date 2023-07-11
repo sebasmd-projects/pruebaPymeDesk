@@ -49,7 +49,43 @@ From the customers view, users should be able to see customer details and apply 
 
 Since there are multiple routes, the website should include navigation mechanisms.
 
+## View example:
+### BACKEND:
+[https://pymedesk.sebasmoralesd.com/](https://pymedesk.sebasmoralesd.com/admin/)
 
-## Responsive app video:
-[![Responsive mobile video](https://i.ytimg.com/vi/FhkqMHxchZ8/maxresdefault.jpg)](https://photos.app.goo.gl/9gsihqhKCsTfVmVi9)
-[Click me!](https://photos.app.goo.gl/9gsihqhKCsTfVmVi9)
+#### How to?
+
+1. Go to the admin url [login](https://pymedesk.sebasmoralesd.com/admin/login/)
+2. Use a test user and login
+   
+    | User  |      Email      | Password |
+    | ----- | :-------------: | -------: |
+    | admin | admin@admin.com | password |
+    | test1 | test1@test.com  |    test1 |
+    | test2 | test2@test.com  |    test2 |
+
+3. Go to the API documentation
+   1. Docs: [https://pymedesk.sebasmoralesd.com/api/docs/](https://pymedesk.sebasmoralesd.com/api/docs/)
+   2. Redocs: [https://pymedesk.sebasmoralesd.com/api/redocs/](https://pymedesk.sebasmoralesd.com/api/redocs/)
+   3. Json Format: [https://pymedesk.sebasmoralesd.com/api/docs/.json/](https://pymedesk.sebasmoralesd.com/api/docs/.json/)
+   4. Download YAML: [https://pymedesk.sebasmoralesd.com/api/docs/.yaml/](https://pymedesk.sebasmoralesd.com/api/docs/.yaml/)
+
+
+### FRONTEND:
+[https://pdfront.sebasmoralesd.com/](https://pdfront.sebasmoralesd.com/)
+
+#### How to?
+1. Go to [https://pdfront.sebasmoralesd.com/](https://pdfront.sebasmoralesd.com/)
+
+#### URLS:
+1. [Summary](https://pdfront.sebasmoralesd.com/)
+2. [Orders](https://pdfront.sebasmoralesd.com/orders)
+3. [Order detail id:'1'](https://pdfront.sebasmoralesd.com/orders/1)
+4. [Clients](https://pdfront.sebasmoralesd.com/clients)
+5. [New Client](https://pdfront.sebasmoralesd.com/clients/newclient)
+6. [Login](https://pdfront.sebasmoralesd.com/accounts/login)
+7. [Account client id:'3'](https://pdfront.sebasmoralesd.com/clients/3)
+   
+   Note: 
+    - Only display info is you log in with the admin account
+    - admin | admin@admin.com | password
