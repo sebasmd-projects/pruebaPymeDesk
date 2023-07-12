@@ -8,6 +8,10 @@ export const list_pages = [
         route: '/orders',
     },
     {
+        label: 'Nuevo Pedido',
+        route: '/orders/neworder',
+    },
+    {
         label: 'Clientes',
         route: '/clients',
     },

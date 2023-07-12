@@ -28,7 +28,7 @@ The API should expose the following endpoints (data should be presented in JSON 
    
 3. `/summary`: Provides metrics summarizing the commerce platform's performance. The following metrics should be exposed:
     - Number of orders
-    - Number of customers
+    - Number of customers (With at least one order)
     - Income for the last month
     - City with the highest number of orders
     - Best-selling product

@@ -33,7 +33,9 @@ from app_core.views import (
 
 from apps.orders.api.views import (
     SummaryView,
-    OrderModelViewSet
+    ListOrderModelAPIView,
+    RetrieveUpdateDestroyOrderModelAPIView,
+    CreateOrderModelAPIView
 )
 
 from apps.products.api.views import ProductModelViewSet
@@ -47,12 +49,6 @@ from apps.users.api.views import (
 urlpatterns = []
 
 router = DefaultRouter()
-
-router.register(
-    r"api/orders",
-    OrderModelViewSet,
-    basename="detail-orders"
-)
 
 router.register(
     r"api/products",
@@ -93,13 +89,7 @@ third_party_paths = [
     path('api/token/verify/', DecoratedTokenVerifyView.as_view(), name='token_verify'),
 ]
 
-
-local_apps_paths = [
-    path(
-        'api/summary/',
-        SummaryView.as_view(),
-        name="summary"
-    ),
+users_api_paths = [
     path(
         'api/users/',
         ListUserModelAPIView.as_view(),
@@ -117,5 +107,28 @@ local_apps_paths = [
     )
 ]
 
-urlpatterns += router.urls + admin_path + third_party_paths + local_apps_paths + \
+orders_api_paths = [
+    path(
+        'api/orders/',
+        ListOrderModelAPIView.as_view(),
+        name="orders"
+    ),
+    path(
+        'api/orders/create/',
+        CreateOrderModelAPIView.as_view(),
+        name="orders-create"
+    ),
+    path(
+        'api/orders/<pk>/',
+        RetrieveUpdateDestroyOrderModelAPIView.as_view(),
+        name="orders-rud"
+    ),
+    path(
+        'api/summary/',
+        SummaryView.as_view(),
+        name="summary"
+    ),
+]
+
+urlpatterns += router.urls + admin_path + third_party_paths + users_api_paths + orders_api_paths + \
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

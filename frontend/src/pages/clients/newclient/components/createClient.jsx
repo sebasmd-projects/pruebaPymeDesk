@@ -22,7 +22,6 @@ const CreateClient = () => {
     };
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
         try {
             const apiPath = process.env.NEXT_PUBLIC_BACKEND_URL;

@@ -14,7 +14,7 @@ export default function NewClientPage() {
         <RootLayout>
             <Head>
                 <title>PymeDesk | Nuevo Cliente</title>
-                <meta name="description" content="Crear una orden para el comercio" />
+                <meta name="description" content="Crear un cliente para el comercio" />
             </Head>
             <Container>
                 <CreateClient/>

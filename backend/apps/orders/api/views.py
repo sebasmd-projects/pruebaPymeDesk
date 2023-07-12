@@ -3,7 +3,12 @@ from django.db.models import Count, F, Sum, ExpressionWrapper, DecimalField
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.status import HTTP_201_CREATED
+from rest_framework.generics import (
+    ListAPIView,
+    CreateAPIView,
+    RetrieveUpdateDestroyAPIView,
+)
 
 from utils.default_pagination import DefaultPaginationSerializer
 
@@ -13,12 +18,52 @@ from apps.orders.models import OrderModel, OrderDetailsModel
 from apps.orders.api.serializers import (
     SummarySerializer,
     OrderModelSerializer,
+    #
+    OrderCreateSerializer
 )
 
-class OrderModelViewSet(ModelViewSet):
+
+class GeneralOrderModelAPIView():
     queryset = OrderModel.objects.all()
-    serializer_class = OrderModelSerializer
     pagination_class = DefaultPaginationSerializer
+
+
+class CreateOrderModelAPIView(GeneralOrderModelAPIView, CreateAPIView):
+    serializer_class = OrderCreateSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        order_data = serializer.validated_data
+
+        order = OrderModel.objects.create(
+            state=order_data['state'],
+            paid=order_data['paid'],
+            shipping_rule=order_data['shipping_rule'],
+            observations=order_data['observations'],
+            client=order_data['client']
+        )
+
+        details_data = order_data['details']
+
+        for detail_data in details_data:
+            OrderDetailsModel.objects.create(
+                product=detail_data['product'],
+                product_order=order,
+                amount=detail_data['amount']
+            )
+
+        return Response(serializer.data, status=HTTP_201_CREATED)
+
+
+class ListOrderModelAPIView(GeneralOrderModelAPIView, ListAPIView):
+    serializer_class = OrderModelSerializer
+
+
+class RetrieveUpdateDestroyOrderModelAPIView(GeneralOrderModelAPIView, RetrieveUpdateDestroyAPIView):
+    serializer_class = OrderModelSerializer
+
 
 class SummaryView(APIView):
     def get(self, request):
