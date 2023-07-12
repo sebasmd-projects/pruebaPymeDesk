@@ -130,5 +130,8 @@ orders_api_paths = [
     ),
 ]
 
-urlpatterns += router.urls + admin_path + third_party_paths + users_api_paths + orders_api_paths + \
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += router.urls + admin_path + third_party_paths + users_api_paths + \
+    orders_api_paths + static(
+        settings.STATIC_URL,
+        document_root=settings.STATIC_ROOT
+    )
